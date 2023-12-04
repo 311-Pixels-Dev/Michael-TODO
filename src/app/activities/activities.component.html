@@ -3,8 +3,11 @@
 
 		<div class="col-12">
 
+			<input type="text" placeholder="add a category"  [(ngModel)]="category" />
+			<button (click)="addCategory()"> Aggiungi </button>
 
-			<input type="text" [(ngModel)]="activity" />
+			<input type="text" placeholder="task name" [(ngModel)]="activity" />
+			<input type="text" placeholder="category"  [(ngModel)]="category" />
 
 			<button (click)="addActivity()"> Aggiungi </button>
 
@@ -12,10 +15,26 @@
 
 			<ul>
 				<li *ngFor="let a of acts">
-					<span [style.text-decoration]="a.complete ? 'line-through' : 'none'"> {{ a.name }}  </span>
-					<input type="checkbox" [(ngModel)]="a.complete" />
+					<div *ngIf="!a.complete">
+						<span [style.text-decoration]="a.complete ? 'line-through' : 'none'"> {{ a.name }}  </span>
+						<input type="checkbox" [(ngModel)]="a.complete" />
+					</div>
 				</li>
 			</ul>
+
+			<h1> Task finiti: </h1>
+
+			<ul>
+				<li *ngFor="let a of acts">
+					<div *ngIf="a.complete">
+						<span [style.text-decoration]="a.complete ? 'line-through' : 'none'"> {{ a.name }}  </span>
+						<input type="checkbox" [(ngModel)]="a.complete" />
+					</div>
+				</li>
+			</ul>
+
+			<br>
+
 
 		</div>
 

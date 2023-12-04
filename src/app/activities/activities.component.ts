@@ -13,10 +13,11 @@ import ActivityModel from '../models/ActivityModel';
 })
 export class ActivitiesComponent {
   activity: string = ""
+  category: string = "";
   acts: Array<ActivityModel> = [];
 
   addActivity() {
-    let a: ActivityModel = new ActivityModel(this.activity);
+    let a: ActivityModel = new ActivityModel(this.activity, this.category);
     this.acts.push(a);
     this.activity = "";
   }
