@@ -1,0 +1,23 @@
+<div class="container">
+	<div class="row d-flex">
+
+		<div class="col-12">
+
+
+			<input type="text" [(ngModel)]="activity" />
+
+			<button (click)="addActivity()"> Aggiungi </button>
+
+			<br>
+
+			<ul>
+				<li *ngFor="let a of acts">
+					<span [style.text-decoration]="a.complete ? 'line-through' : 'none'"> {{ a.name }}  </span>
+					<input type="checkbox" [(ngModel)]="a.complete" />
+				</li>
+			</ul>
+
+		</div>
+
+	</div>
+</div>
